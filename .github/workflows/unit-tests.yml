@@ -6,7 +6,7 @@ env:
   DOTNET_VERSION: 5.0.x
   WORKING_DIRECTORY: 'src'
 jobs:
-  build-and-deploy:
+  build-and-test:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@master
