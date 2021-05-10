@@ -1,4 +1,4 @@
-name: Build and deploy .NET Core Function App to TransactionsETL
+name: Build and run tests
 on:
   push:
 env:
