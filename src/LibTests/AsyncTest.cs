@@ -50,6 +50,29 @@ namespace LibTests
                 Console.WriteLine($"n: {n}");
             }
         }
+
+        [Test]
+        public async Task VerifyOutOfOrderAwait() {
+            Func<int, Task> delayedPrint = async (delay) => {
+                await Task.Delay(delay);                
+                Console.WriteLine($"{DateTime.Now}: Delay {delay} complete!");
+            };
+
+            Console.WriteLine($"{DateTime.Now} Await blocks");
+            await delayedPrint(3000);
+            await delayedPrint(2000);
+            await delayedPrint(1000);
+
+            Console.WriteLine($"{DateTime.Now} Create tasks then await, no block");
+            Task t1 = delayedPrint(3000);
+            Task t2 = delayedPrint(2000);
+            Task t3 = delayedPrint(1000);
+
+            await t1;
+            await t2;
+            await t3;
+
+        }
     }
 
 }
