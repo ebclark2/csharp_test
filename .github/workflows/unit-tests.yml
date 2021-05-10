@@ -3,7 +3,7 @@ on:
   push:
 env:
   CONFIGURATION: Release
-  DOTNET_VERSION: 5.0
+  DOTNET_VERSION: 5.0.x
   WORKING_DIRECTORY: 'src'
 jobs:
   build-and-deploy:
